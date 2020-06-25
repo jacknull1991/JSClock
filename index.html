@@ -7,18 +7,27 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="clock">
-		<div class="hour">
-			<div class="hr" id="hr"></div>
+	<div class="container-column">
+		<div class="clock">
+			<div class="hour">
+				<div class="hr" id="hr"></div>
+			</div>
+			<div class="min">
+				<div class="mn" id="mn"></div>
+			</div>
+			<div class="sec">
+				<div class="sc" id="sc"></div>
+			</div>
 		</div>
-		<div class="min">
-			<div class="mn" id="mn"></div>
-		</div>
-		<div class="sec">
-			<div class="sc" id="sc"></div>
+		<div class="toggleClass" onclick="toggleClass()"></div>
+		<div class="digitalClock">
+			<div id="hours"></div>
+			<div id="minutes"></div>
+			<div id="seconds"></div>
+			<div id="AMPM"></div>
 		</div>
 	</div>
-	<div class="toggleClass" onclick="toggleClass()"></div>
+
 	<script type="text/javascript">
 		function toggleClass() {
 			const body = document.querySelector('body');
@@ -32,13 +41,33 @@
 
 		setInterval(() => {
 			let day = new Date();
-			let hh = day.getHours() * 30;
-			let mm = day.getMinutes() * deg;
-			let ss = day.getSeconds() * deg;
+			let hh = day.getHours();
+			let mm = day.getMinutes();
+			let ss = day.getSeconds();
 
-			hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)`;
-			mn.style.transform = `rotateZ(${mm}deg)`;
-			sc.style.transform = `rotateZ(${ss}deg)`;
+			hr.style.transform = `rotateZ(${(hh * 30) + (mm * deg/12)}deg)`;
+			mn.style.transform = `rotateZ(${mm * deg}deg)`;
+			sc.style.transform = `rotateZ(${ss * deg}deg)`;
+
+			let hours = document.querySelector("#hours");
+			let minutes = document.querySelector("#minutes");
+			let seconds = document.querySelector("#seconds");
+			let ampm = document.querySelector("#AMPM");
+
+			hh = (hh < 10) ? "0" + hh : hh;
+			mm = (mm < 10) ? "0" + mm : mm;
+			ss = (ss < 10) ? "0" + ss : ss;
+			let am = "AM";
+
+			if (hh > 12) {
+				h = h - 12;
+				am = "PM";
+			}
+
+			hours.innerHTML = hh + ":";
+			minutes.innerHTML = mm + ":";
+			seconds.innerHTML = ss + "&nbsp";
+			ampm.innerHTML = am;
 		});
 			
 	</script>
