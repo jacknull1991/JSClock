@@ -10,32 +10,57 @@
 		<li>
 			<label>
 				<input type="checkbox" name="">
-				<div class="icon"><i class="fa fa-flask" aria-hidden="true"></i></div>
+				<div class="icon square"><i class="fa fa-flask" aria-hidden="true"></i></div>
 			</label>
 		</li>
 		<li>
 			<label>
 				<input type="checkbox" name="">
-				<div class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+				<div class="icon square"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
 			</label>
 		</li>
 		<li>
 			<label>
 				<input type="checkbox" name="">
-				<div class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></div>
+				<div class="icon square"><i class="fa fa-heartbeat" aria-hidden="true"></i></div>
 			</label>
 		</li>
 		<li>
 			<label>
 				<input type="checkbox" name="">
-				<div class="icon"><i class="fa fa-gift" aria-hidden="true"></i></div>
+				<div class="icon square"><i class="fa fa-gift" aria-hidden="true"></i></div>
 			</label>
 		</li>
 		<li>
 			<label>
 				<input type="checkbox" name="">
-				<div class="icon"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
+				<div class="icon square"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
 			</label>
 		</li>
 	</ul>
+	<ul>
+		<li>
+			<label>
+				<input id="power" type="checkbox" name="" onclick="poweroff()">
+				<div class="icon round"><i class="fa fa-power-off" aria-hidden="true"></i></div>
+			</label>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		function poweroff() {
+			let checkbox = document.querySelector("#power");
+
+			let icons = document.querySelectorAll(".icon .fa");
+			console.log(icons);
+			if (checkbox.checked == true) {
+				icons.forEach((icon) => {
+					icon.style.animation = "animate 5s linear infinite";
+				});
+			} else {
+				icons.forEach((icon) => {
+					icon.style.animation = "stall 5s linear infinite";
+				});
+			}
+		}
+	</script>
 </body>
