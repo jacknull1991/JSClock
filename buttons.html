@@ -6,6 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="buttons.css">
 </head>
 <body>
+	<section>
+		<h2 style="--i:1;">P</h2>
+		<h2 style="--i:2;">O</h2>
+		<h2 style="--i:3;">W</h2>
+		<h2 style="--i:4;">E</h2>
+		<h2 style="--i:5;">R</h2>
+		<h2 style="--i:6;">&nbsp</h2>
+		<h2 style="--i:7;">U</h2>
+		<h2 style="--i:8;">P</h2>
+	</section>
 	<ul>
 		<li>
 			<label>
@@ -41,7 +51,7 @@
 	<ul>
 		<li>
 			<label>
-				<input id="power" type="checkbox" name="" onclick="poweroff()">
+				<input id="power" type="checkbox" checked="true" name="" onclick="poweroff()">
 				<div class="icon round"><i class="fa fa-power-off" aria-hidden="true"></i></div>
 			</label>
 		</li>
@@ -51,14 +61,21 @@
 			let checkbox = document.querySelector("#power");
 
 			let icons = document.querySelectorAll(".icon .fa");
-			console.log(icons);
+			let texts = document.querySelectorAll("h2")
+			
 			if (checkbox.checked == true) {
 				icons.forEach((icon) => {
 					icon.style.animation = "animate 5s linear infinite";
 				});
+				texts.forEach((text) => {
+					text.style.animation = "wave 1s ease-in-out infinite";
+				});
 			} else {
 				icons.forEach((icon) => {
 					icon.style.animation = "stall 5s linear infinite";
+				});
+				texts.forEach((text) => {
+					text.style.animation = "stall";
 				});
 			}
 		}

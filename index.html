@@ -53,16 +53,15 @@
 			let minutes = document.querySelector("#minutes");
 			let seconds = document.querySelector("#seconds");
 			let ampm = document.querySelector("#AMPM");
+			let am = "AM";
+			if (hh > 12) {
+				hh = hh - 12;
+				am = "PM";
+			}
 
 			hh = (hh < 10) ? "0" + hh : hh;
 			mm = (mm < 10) ? "0" + mm : mm;
 			ss = (ss < 10) ? "0" + ss : ss;
-			let am = "AM";
-
-			if (hh > 12) {
-				h = h - 12;
-				am = "PM";
-			}
 
 			hours.innerHTML = hh + ":";
 			minutes.innerHTML = mm + ":";
